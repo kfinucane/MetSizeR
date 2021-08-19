@@ -6,7 +6,7 @@ Authors@R:
     c(person(given = "Kate",
              family = "Finucane",
              role = c("aut", "cre"),
-             email = "kate.finucane@ucd.connect.ie"),
+             email = "kate.finucane@ucdconnect.ie"),
       person(given = "Gift",
              family = "Nyamundanda",
              role = c("aut")),
@@ -23,14 +23,10 @@ Authors@R:
              family = "Brennan",
              role = c("aut")))
 Description: Provides a Shiny application to estimate sample size required for
-    a specified metabolomic experiment to achieve a desired statistical power.
+    a metabolomic experiment to achieve a desired statistical power.
     Estimation is possible with or without available data from a pilot study. 
-    Required sample size can be estimated for studies which aim to use 
-    Probablistic Principal Components Analysis or Probablistic Principal 
-    Component and Covariate Analysis as analysis methods.
 License: GPL (>= 3)
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 

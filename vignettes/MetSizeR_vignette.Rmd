@@ -54,7 +54,7 @@ Package dependencies will also be installed if they are not already installed on
 * utils
 * vroom
 
-Alternatively, MetSizeR can be downloaded and installed manually by the user if they so prefer by visiting [its entry on The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/web/packages/MetSizeR/).
+Alternatively, MetSizeR can be downloaded and installed manually by the user if they so prefer by visiting [its entry on The Comprehensive R Archive Network (CRAN)](https://CRAN.R-project.org/package=MetSizeR).
 
 # Loading the Application
 
@@ -74,8 +74,6 @@ The application will then launch, either in the user’s external browser, a pop
 
 Once the application has launched, the initial landing page is an `About` page which contains information about the package, its functionality, and references for the methods used within. Navigation through the application occurs through the navigation bar at the top of the page, with options `About`, `Sample Size Estimation`, and `Vary Proportion of Significant Spectral Bins` leading to the about page, the page on which to perform sample size estimation for a single experiment, and the page on which to estimate the sample size for varying proportions of significant bins or metabolites respectively.
 
-![The `About` page for the MetSizeR application. A short introduction to the application is shown, along with references for methods used in its development. By clicking the checkbox shown, the user can choose to show more detailed information about the app's methods.](about_page.png){width=100%}
-
 # Sample Size Estimation
 
 The core functionality of MetSizeR is the ability to estimate the sample size required for a metabolomic experiment to achieve a desired statistical power. MetSizeR can perform this estimation for targeted or untargeted experiments, both for cases when pilot data are available or unavailable. Sample size estimation takes place based on the intended method of analysis in the experiment; at present the tool is available for PPCA or PPCCA. To navigate to the sample size estimation tool, select `Sample Size Estimation` on the navigation bar at the top of the page. 
@@ -83,8 +81,6 @@ The core functionality of MetSizeR is the ability to estimate the sample size re
 ## Sample Size Estimation in the Absence of Pilot Data
 
 MetSizeR can estimate the sample size required for a study to achieve a desired statistical power even when pilot data are unavailable. In this case, the tool can be used for both targeted and untargeted analysis. The user must specify several parameters for the algorithm to use, given as follows. These are specified by selecting or inputting options on the sidebar located on the left side of the page.
-
-![Inputs for the sample size estimation method, shown for the case when pilot data are not available, and untargeted PPCA analysis is planned.](ssest_inputs.png){width=50%}
 
 ### Inputs
 
@@ -94,8 +90,6 @@ MetSizeR can estimate the sample size required for a study to achieve a desired 
 * The proportion of significant bins (untargeted analysis) or the proportion of significant metabolites (targeted analysis). This is the proportion of the bins or metabolites present which the user expects should be statistically significant, and is generally expected to be less than 0.5. In the case where this proportion is unknown, there is a feature of the application which allows simultaneous estimations to be made for several proportions at once, which will be outlined later in this handbook. The proportion can be typed into the box available, with arrows on the right side of the box allowing adjustments. 
 * The model to be used in analysis, either PPCA or PPCCA, which must be selected by clicking the relevant button.
     * If PPCCA is the method of choice, two other options will appear, asking the user to specify the number of numeric and categorical covariates. If any categorical covariates are expected then the total number of levels present for all categorical covariates must also be input. These numbers can be typed into the relevant boxes, or adjusted using the arrows present on the right side of the boxes. Inputs containing zero to five numeric and zero to five categorical covariates are accepted. The maximum number of levels accepted is 50, with a minimum of two levels required.
-    
-![The covariate specification options to the sample size estimation algorithm, which appear when the `PPCCA` option is selected as the analysis model.](ppcca_options.png){width=50%}
 
 * The target FDR, which is the FDR the researcher desires for their experiment. This is equivalent to $1-power$ of the study. This can be entered into the relevant box, either by typing or adjusting the value using the arrows.
 * The sample size per group. The algorithm is based on an experimental set-up whereby samples originate from two groups to be compared. The minimum sample size to test for each group must be specified by the user. A minimum value of three samples per group is required. Please note that the ratio of samples per group will be fixed at the ratio given.
@@ -104,9 +98,7 @@ Once the input values have been entered to the user's specifications, the `Estim
 
 When results are ready they will appear on the right side of the screen. A plot of FDR versus sample size will appear, showing the 90th, 50th, and 10th percentiles of the FDR values calculated for each sample size tested. The estimated optimal sample size will be indicated by a blue vertical line, and also in text in the legend of the plot. The target FDR is given by a black dotted line on the plot.
 
-Below the plot, results will be displayed in text. The estimated optimal sample size will be printed, along with the per-group breakdown of the sample sizes, in the same ratio as input by the researcher. There is an option to download the plot, by clicking the `Download Plot` button. The plot will then download to the location of choice on the user's computer. There is also an option to view the exact values from the points on the plot by clicking the `Show values from plot?` checkbox. This opens a table showing the values of the 90th, 50th, and 10th percentiles of the FDR values calculated alongside the relevent sample size. The user can download this data as a CSV file by clicking the `Download Plot Data as .csv` button, which will download the data to the location of the user's choosing.
-
-![The `Sample Size Estimation` page for the MetSizeR application. Input options are shown on the left of the screen on the sidebar, and results, when calculated, appear on the right of the screen.](ssest_results.png){width=100%}
+Below the plot, results will be displayed in text. The estimated optimal sample size will be printed, along with the per-group breakdown of the sample sizes, in the same ratio as input by the researcher. There is an option to download the plot, by clicking the `Download Plot` button. The plot will then download to the location of choice on the user's computer. There is also an option to view the exact values from the points on the plot by clicking the `Show values from plot?` checkbox. This opens a table showing the values of the 90th, 50th, and 10th percentiles of the FDR values calculated alongside the relevant sample size. The user can download this data as a CSV file by clicking the `Download Plot Data as .csv` button, which will download the data to the location of the user's choosing.
 
 If the user wishes to change any of the inputs and re-run the algorithm, they can simply change the relevant inputs and click `Estimate Optimal Sample Size` once more, and the results will update. The user will know the algorithm is running as a notification will appear on the bottom right of the screen.
 
@@ -120,8 +112,6 @@ If pilot data are available then MetSizeR can use this to aid its estimation of 
 * Whether pilot data are available. To upload pilot data, select the `Is experimental pilot data available?` checkbox. This will open several options to the user. Firstly, the user must specify if their data contains a header as the first row, if so click the `Does data contain a header?` checkbox. The option to upload data as a CSV file is then given. To select the data file, click `Browse`, navigate to the file's location and select the file. A blue confirmation bar should appear under the file upload section, saying `Upload complete`, and the name of the file should appear in the box beside the `Browse` button.
     * **Data file specifications:** Note that the uploaded data must be correctly formatted. The data should be in CSV format and the file should not exceed 5MB in size. If covariate data are included, this must be given in the first few columns before any spectral data. Categorical covariates should be included before numeric covariates, if applicable. For example, if a data set has one categorical covariate, two numeric covariates, and 150 spectral bins, then column one should be the categorical covariate, columns two and three the numeric covariates, and column four to 153 should contain the spectral data.
 
-![Instructions and options for uploading pilot data to the application, which appear once the `Is experimental pilot data available?` checkbox is ticked.](pilot_data_upload.png){width=50%}  
-
 * The proportion of significant bins (untargeted analysis) or the proportion of significant metabolites (targeted analysis). This is the proportion of the bins or metabolites present which the user expects should be statistically significant, and is generally expected to be less than 0.5. The proportion can be typed into the box available, with arrows on the right side of the box allowing adjustments. 
 * The model to be used in analysis, either PPCA or PPCCA, which must be selected by clicking the relevant button.
     * If PPCCA is the method of choice, two other options will appear, asking the user to specify the number of numeric and categorical covariates. These numbers can be typed into the relevant boxes, or adjusted using the arrows present on the right hand side of the box. Inputs containing zero to five numeric and zero to five categorical covariates are accepted. The maximum number of levels accepted is 50, with a minimum of two levels required. Note that when pilot data are present there is no option to specify the number of levels present, as this will be gleaned from the pilot data uploaded.
@@ -132,7 +122,7 @@ Note that the number of spectral bins (untargeted analysis) or metabolites (targ
 
 When results are ready they will appear on the right side of the screen. A plot of FDR versus sample size will appear, showing the 90th, 50th, and 10th percentiles of the FDR values calculated for each sample size tested. The estimated optimal sample size will be indicated by a blue vertical line, and also in text in the legend of the plot. The target FDR is given by a black dotted line on the plot.
 
-Below the plot, results will be displayed in text. The estimated optimal sample size will be printed, along with the per-group breakdown of the sample sizes, in the same ratio as input by the researcher. There is an option to download the plot, by clicking the `Download Plot` button. The plot will then download to the location of choice on the user's computer. There is also an option to view the exact values from the points on the plot by clicking the `Show values from plot?` checkbox. This opens a table showing the values of the 90th, 50th, and 10th percentiles of the FDR values calculated alongside the relevent sample size. The user can download this data as a CSV file by clicking the `Download Plot Data as .csv` button, which will download the
+Below the plot, results will be displayed in text. The estimated optimal sample size will be printed, along with the per-group breakdown of the sample sizes, in the same ratio as input by the researcher. There is an option to download the plot, by clicking the `Download Plot` button. The plot will then download to the location of choice on the user's computer. There is also an option to view the exact values from the points on the plot by clicking the `Show values from plot?` checkbox. This opens a table showing the values of the 90th, 50th, and 10th percentiles of the FDR values calculated alongside the relevant sample size. The user can download this data as a CSV file by clicking the `Download Plot Data as .csv` button, which will download the
 data to the location of the user's choosing.
 
 If the user wishes to change any of the inputs and re-run the algorithm, they can simply change the relevant inputs and click `Estimate Optimal Sample Size` once more, and the results will update. The user will know the algorithm is running as a notification will appear on the bottom right of the screen.
@@ -144,13 +134,9 @@ If the user wishes to test different proportions of significant bins to find the
 
 First the user should specify whether they intend to perform targeted or untargeted analysis by selecting the applicable option at the top of the sidebar on the left of the page. There are then boxes on the sidebar where the user can enter up to four proportions. One proportion should be entered in each box. If less than four proportions are required, zero should be entered in the remaining boxes. The values can be input by either typing the proportion as a decimal, or using the arrows on the right of the boxes to change the values.
 
-![The `Vary Proportion of Significant Spectral Bins` page for the MetSizeR application, which allows up to four proportions of significant variables to be evaluated for their optimal sample size. Inputs are specified using the options in the sidebar on the left of the screen, and results appear on the right of the screen once the computation is complete.](vprop_default.png){width=100%}
-
 The user must then also choose the number of spectral bins (untargeted analysis) or metabolites (targeted analysis) to test by typing the desired number into the relevant box or using the arrows. They must then select the desired model to use, either PPCA or PPCCA, by selecting the button for their chosen model. If PPCCA is selected, the number of numeric and categorical covariates must be specified, with the number of levels of any categorical variables entered also. The target FDR must then be specified, by typing in the desired value or using the arrows to select. Once the inputs are entered to the user's specifications, the `Run MetSizeR for Varied Proportions` button should be clicked to start the process. Note that this process can take some time, especially for larger numbers of bins. A notification will appear on the bottom right of the screen, indicating that the algorithm is running. This process will usually be longer than the single sample size calculation performed on the `Sample Size Estimation` tab, as there are more calculations to be performed.
 
 When results are ready, one plot for each of the specified proportions will appear on the right side of the screen, along with a statement of their respective proportions. A download button is available for each plot which, when clicked, will allow the user to download the plot as a PNG file to the location of their choosing. 
-
-![The `Vary Proportion of Significant Spectral Bins` page with results shown for a set of inputs. Four proportions were tested and as such four plots are returned, each showing the result for a different significant proportion of bins.](vprop_results.png){width=100%}
 
 # References
 
