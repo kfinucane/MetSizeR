@@ -1,7 +1,7 @@
 Package: MetSizeR
 Title: A Shiny App for Sample Size Estimation in Metabolomic Experiments
 Version: 2.0.0
-Date: 2021-08-19
+Date: 2021-08-20
 Authors@R: 
     c(person(given = "Kate",
              family = "Finucane",
@@ -22,8 +22,8 @@ Authors@R:
       person(given = "Lorraine",
              family = "Brennan",
              role = c("aut")))
-Description: Provides a Shiny application to estimate sample size required for
-    a metabolomic experiment to achieve a desired statistical power.
+Description: Provides a Shiny application to estimate the sample size required 
+    for a metabolomic experiment to achieve a desired statistical power. 
     Estimation is possible with or without available data from a pilot study. 
 License: GPL (>= 3)
 Encoding: UTF-8
