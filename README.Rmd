@@ -19,7 +19,7 @@ MetSizeR is a Shiny application developed for metabolomic scientists to estimate
 
 ## Installation
 
-You can install the released version of MetSizeR from [CRAN](https://CRAN.R-project.org) with:
+MetSizeR can be installed from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("MetSizeR")
@@ -27,7 +27,7 @@ install.packages("MetSizeR")
 
 ## Accessing MetSizeR application
 
-All MetSizeR functionality is accessed through a Shiny application, which can be accessed with by running the following command:
+All MetSizeR functionality is accessed through a Shiny application, which can be accessed by running the following command:
 
 ```{r eval = FALSE}
 # load MetSizeR package

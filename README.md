@@ -11,8 +11,7 @@ the methodology by Nyamundanda et al. (2013).
 
 ## Installation
 
-You can install the released version of MetSizeR from
-[CRAN](https://CRAN.R-project.org) with:
+MetSizeR can be installed from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("MetSizeR")
@@ -21,7 +20,7 @@ install.packages("MetSizeR")
 ## Accessing MetSizeR application
 
 All MetSizeR functionality is accessed through a Shiny application,
-which can be accessed with by running the following command:
+which can be accessed by running the following command:
 
 ``` r
 # load MetSizeR package
