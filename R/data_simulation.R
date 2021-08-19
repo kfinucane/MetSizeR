@@ -25,15 +25,18 @@
 #'
 #' @noRd
 sim.pilot.data <- function(n1, n2, p, Zerop, Ip, Zeroq, Iq, ZeroL, IL, ZeroL1, IL1, sig, W, Alpha, mu, mod, model) {
+  # generate parameters
   n <- n1 + n2
-  if (mod[1] == model) {
+  if (mod[1] == model) {  # PPCA
     u <- Rfast::rmvnorm(n, Zeroq, Iq)
-  } else {
+  } else {  # PPCCA
     C <- Rfast::rmvnorm(n, ZeroL, IL)
-    C <- standardize(C) ## Standardize covariates for stability
+    # Standardize covariates for stability
+    C <- standardize(C)
     C <- rbind(rep(1, n), t(C))
     u <- Rfast::rmvnorm(n, Zeroq, Iq) + t(Alpha %*% C)
-  } # ifppca
+  }
+  # generate data
   x <- Rfast::rmvnorm(n, Zerop, sig * Ip) + tcrossprod(u, W) + matrix(mu, n, p, byrow = TRUE)  # keep tcrossprod in base because faster for needed dimensions
   return(x)
 }
@@ -66,19 +69,22 @@ sim.pilot.data <- function(n1, n2, p, Zerop, Ip, Zeroq, Iq, ZeroL, IL, ZeroL1, I
 #'
 #' @noRd
 sim.pilot <- function(n1, n2, p, Zerop, Ip, q, Zeroq, Iq, ZeroL, IL, ZeroL1, IL1, alpha.sigma, beta.sigma, mod, model, ao1, bo) {
+  # generate parameters
   n <- n1 + n2
   sig <- 1 / stats::rgamma(1, alpha.sigma, beta.sigma)
-  if (mod[1] == model) {
+  if (mod[1] == model) {  # PPCA
     u <- Rfast::rmvnorm(n, Zeroq, Iq)
-  } else {
+  } else {  # PPCCA
     Alpha <- Rfast::rmvnorm(q, ZeroL1, 3 * IL1)
     C <- Rfast::rmvnorm(n, ZeroL, IL)
-    C <- standardize(C) ## Standardize covariates for stability
+    # Standardize covariates for stability
+    C <- standardize(C)
     C <- rbind(rep(1, n), t(C))
     u <- Rfast::rmvnorm(n, Zeroq, Iq) + t(Alpha %*% C)
-  } # ifppca
+  }
   v <- 1 / stats::rgamma(q, ao1, bo)
   W <- Rfast::rmvnorm(p, Zeroq, v * Iq)
+  # generate data
   x <- Rfast::rmvnorm(n, Zerop, sig * Ip) + tcrossprod(u, W)
   return(x)
 }

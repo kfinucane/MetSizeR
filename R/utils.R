@@ -10,7 +10,7 @@ standardize <- function(C) {
   {
     rg <- range(C[, i])
     C[, i] <- (C[, i] - min(C[, i])) / (rg[2] - rg[1])
-  } # end for
+  }
   C
 }
 
@@ -40,7 +40,7 @@ standardize <- function(C) {
 #' @param cpcf The 5th percentile of the number of bins.
 #'
 #' @return List containing matrix S and matrix TS. Matrix S contains the
-#'   pooled standard deviation for metabolites with correction factor added. Matrix TS contains the
+#'   pooled standard deviations with correction factor added. Matrix TS contains the
 #'   test statistics for the designated test - a two-sample test statistic used
 #'   to test a difference in the means of two groups.
 #'
@@ -51,9 +51,11 @@ samp.dist <- function(T, S, TS, x, y, n11, n22, in1n2, nn2, cpcf) {
     yperm <- sample(y, replace = FALSE)
     x1 <- x[yperm == 1, ]
     x2 <- x[yperm == 2, ]
-    Sj <- sqrt(in1n2 * (n11 * Rfast::colVars(x1) + n22 * Rfast::colVars(x2)) / nn2)  # FASTER!!!
-    S[, t] <- Sj + Rfast::Sort(Sj, partial = cpcf)[cpcf]  ## corrected standard deviation
+    # sd
+    Sj <- sqrt(in1n2 * (n11 * Rfast::colVars(x1) + n22 * Rfast::colVars(x2)) / nn2)
+    # stored sd with correction factor
+    S[, t] <- Sj + Rfast::Sort(Sj, partial = cpcf)[cpcf]
     TS[, t] <- (Rfast::colmeans(x1) - Rfast::colmeans(x2)) / S[, t]
-  } # t
+  }
   return(list(S = S, TS = TS))
 }
