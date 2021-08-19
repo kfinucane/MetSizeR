@@ -1,0 +1,50 @@
+Package: MetSizeR
+Title: A Shiny App for Sample Size Estimation in Metabolomic Experiments
+Version: 2.0.0
+Date: 2021-08-19
+Authors@R: 
+    c(person(given = "Kate",
+             family = "Finucane",
+             role = c("aut", "cre"),
+             email = "kate.finucane@ucd.connect.ie"),
+      person(given = "Gift",
+             family = "Nyamundanda",
+             role = c("aut")),
+      person(given = "Isobel Claire",
+             family = "Gormley",
+             role = c("aut")),
+      person(given = "Yue",
+             family = "Fan",
+             role = c("aut")),
+      person(given = "William M",
+             family = "Gallagher",
+             role = c("aut")),
+      person(given = "Lorraine",
+             family = "Brennan",
+             role = c("aut")))
+Description: Provides a Shiny application to estimate sample size required for
+    a specified metabolomic experiment to achieve a desired statistical power.
+    Estimation is possible with or without available data from a pilot study. 
+    Required sample size can be estimated for studies which aim to use 
+    Probablistic Principal Components Analysis or Probablistic Principal 
+    Component and Covariate Analysis as analysis methods.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    dplyr,
+    ggplot2,
+    MetabolAnalyze,
+    Rfast,
+    shiny,
+    shinythemes,
+    stats,
+    tools,
+    utils,
+    vroom
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
